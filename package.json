@@ -1,0 +1,23 @@
+{
+  "name": "room-tablet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattIPv4/Room-Tablet.git"
+  },
+  "author": "Matt (IPv4) Cowley",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/MattIPv4/Room-Tablet/issues"
+  },
+  "homepage": "https://github.com/MattIPv4/Room-Tablet#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^5.0.6"
+  }
+}
