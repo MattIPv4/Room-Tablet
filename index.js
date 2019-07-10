@@ -5,6 +5,7 @@ const createWindow = () => {
         fullscreen: true,
         alwaysOnTop: true,
     });
+    mainWindow.loadFile('index.html');
 };
 
 app.on('ready', createWindow);
