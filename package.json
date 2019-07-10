@@ -16,8 +16,9 @@
     "url": "https://github.com/MattIPv4/Room-Tablet/issues"
   },
   "homepage": "https://github.com/MattIPv4/Room-Tablet#readme",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
+    "brightness": "^3.0.0",
     "electron": "^5.0.6"
-  }
+  },
+  "devDependencies": {}
 }

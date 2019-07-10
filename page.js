@@ -1,5 +1,5 @@
 const setBaseStyling = () => {
-    document.body.style.backgroundColor = "rgb(0, 0, 0)";
+    document.body.style.backgroundColor = "#000";
     document.body.style.margin = "0";
 };
 
@@ -90,15 +90,9 @@ const setText = (main, sub) => {
     centerTextBox();
 };
 
-window.onload = function () {
+window.onload = () => {
     setBaseStyling();
     createTextBox();
-
     applyBoxStyle(1);
-    setText("Hello", "...");
-
-    setTimeout(() => {
-        applyBoxStyle(2);
-        setText("Hello", "World!");
-    }, 1500);
+    setText("", "...");
 };
