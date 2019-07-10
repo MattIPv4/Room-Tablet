@@ -1,5 +1,6 @@
 const {app, BrowserWindow} = require('electron');
 const brightness = require('brightness');
+const stayAwake = require('stay-awake');
 
 let mainWindow;
 const createWindow = () => {
@@ -24,10 +25,26 @@ const displayOff = () => {
     brightness.set(0);
 };
 
+const blockSleep = () => {
+    stayAwake.prevent();
+};
+
+const allowSleep = () => {
+    stayAwake.allow();
+};
+
 const setStyleAndText = (style, large, small) => {
     displayOn();
     mainWindow.webContents.executeJavaScript(`applyBoxStyle(${style});`);
     mainWindow.webContents.executeJavaScript(`setText("${large}", "${small || ""}");`);
 };
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    blockSleep();
+    createWindow();
+});
+
+app.on('before-quit', () => {
+    displayOn();
+    allowSleep();
+});

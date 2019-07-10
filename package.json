@@ -18,7 +18,8 @@
   "homepage": "https://github.com/MattIPv4/Room-Tablet#readme",
   "dependencies": {
     "brightness": "^3.0.0",
-    "electron": "^5.0.6"
+    "electron": "^5.0.6",
+    "stay-awake": "0.0.3"
   },
   "devDependencies": {}
 }
