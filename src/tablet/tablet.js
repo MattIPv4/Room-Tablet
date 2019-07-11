@@ -9,12 +9,7 @@ const createWindow = () => {
         alwaysOnTop: true,
         backgroundColor: "#000"
     });
-    mainWindow.loadFile('index.html');
-
-    displayOff();
-    setTimeout(() => {
-        setStyleAndText(2, "Hello!");
-    }, 5000);
+    mainWindow.loadFile(`${__dirname}/screen.html`);
 };
 
 const displayOn = () => {
@@ -33,9 +28,11 @@ const allowSleep = () => {
     stayAwake.allow();
 };
 
-const setStyleAndText = (style, large, small) => {
-    displayOn();
+const setStyle = style => {
     mainWindow.webContents.executeJavaScript(`applyBoxStyle(${style});`);
+};
+
+const setText = (large, small) => {
     mainWindow.webContents.executeJavaScript(`setText("${large}", "${small || ""}");`);
 };
 
@@ -48,3 +45,5 @@ app.on('before-quit', () => {
     displayOn();
     allowSleep();
 });
+
+module.exports = {displayOn, displayOff, setStyle, setText};
