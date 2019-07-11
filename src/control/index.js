@@ -52,9 +52,9 @@ const callQuit = () => {
 };
 
 const callRestart = () => {
-    request("GET", "api/quit", (res) => {});
+    request("GET", "api/restart", (res) => {});
 };
 
 const callUpdate = () => {
-    request("GET", "api/quit", (res) => {});
+    request("GET", "api/update", (res) => {});
 };

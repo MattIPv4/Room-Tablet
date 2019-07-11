@@ -32,15 +32,16 @@ const createAPI = (app, tablet) => {
     });
 
     app.get('/api/quit', function (req, res) {
+        tablet.setDataText(`Quitting at ${(new Date()).toLocaleString()}...`);
         res.json({message: "Ok"});
         tablet.quit();
     });
 
     const restart = () => {
+        tablet.setDataText(`Restarting at ${(new Date()).toLocaleString()}...`);
         const spawn = require('child_process').spawn;
         const child = spawn(process.argv[0], process.argv.slice(1), {detached: true});
         child.unref();
-
         tablet.quit();
     };
 
@@ -50,8 +51,10 @@ const createAPI = (app, tablet) => {
     });
 
     app.get('/api/update', function (req, res) {
+        tablet.setDataText(`Updating at ${(new Date()).toLocaleString()}...`);
         simpleGit().pull((err, update) => {
             if (update && update.summary.changes) {
+                tablet.setDataText(`Installing at ${(new Date()).toLocaleString()}..`);
                 const child = require('child_process').exec('npm i');
                 child.stdout.pipe(process.stdout);
                 child.on('exit', function() {
