@@ -13,6 +13,7 @@ const createWindow = () => {
 };
 
 const setDisplay = value => {
+    mainWindow.webContents.executeJavaScript(`document.body.style.visibility = "${value === 0 ? "hidden" : "visible"}";`);
     brightness.set(value);
 };
 
