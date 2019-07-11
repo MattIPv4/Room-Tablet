@@ -1,5 +1,6 @@
 const express = require('express');
 const ip = require('ip');
+const simpleGit = require('simple-git');
 
 const render = (req, res) => {
     const options = {
@@ -29,9 +30,31 @@ const createAPI = (app, tablet) => {
         res.json({message: "Ok"});
     });
 
-    app.post('/api/quit', function (req, res) {
+    app.get('/api/quit', function (req, res) {
         res.json({message: "Ok"});
         tablet.quit();
+    });
+
+    const restart = () => {
+        const spawn = require('child_process').spawn;
+        const child = spawn(process.argv[0], process.argv.slice(1), {detached: true});
+        child.unref();
+
+        tablet.quit();
+    };
+
+    app.get('/api/restart', function (req, res) {
+        res.json({message: "Ok"});
+        restart();
+    });
+
+    app.get('/api/git-pull', function (req, res) {
+        simpleGit().pull((err, update) => {
+            if (update && update.summary.changes) {
+                res.json({message: "Ok"});
+                restart();
+            }
+        });
     });
 };
 

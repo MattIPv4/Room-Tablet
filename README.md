@@ -27,9 +27,14 @@
 ----
 
 <!-- Content -->
-## Hello
+## Windows Setup
 
-This repository stores my template README file along with other useful default & template files for my GitHub repositories.
+ - Install git
+ - Install node 10.16
+ - `git clone https://github.com/MattIPv4/Room-Tablet.git`
+ - `npm i`
+ - `npm i electron -g`
+ - `npm start`
 
 <!-- Contributing -->
 ## Contributing

@@ -4,6 +4,7 @@ const brightness = require('brightness');
 let mainWindow;
 const createWindow = () => {
     mainWindow = new BrowserWindow({
+        frame: false,
         fullscreen: true,
         alwaysOnTop: true,
         backgroundColor: "#000"
