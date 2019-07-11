@@ -16,11 +16,11 @@ const applyBoxStyle = style => {
     // Base styling outer
     outerTextBox.style.padding = "3rem 5rem";
     outerTextBox.style.borderRadius = "2.5rem";
-    outerTextBox.style.border = "1.5rem solid";
+    outerTextBox.style.border = "1rem solid";
 
     // Base text styling
     textBox.style.fontFamily = "sans-serif";
-    textBox.style.fontSize = "4rem";
+    textBox.style.fontSize = "4.5rem";
     textBox.style.textAlign = "center";
     textBox.style.color = "rgba(255, 255, 255, .9)";
     textBox.style.margin = "0";
@@ -83,6 +83,7 @@ const setText = (main, sub) => {
         const small = document.createElement("small");
         small.textContent = sub;
         small.style.display = "block";
+        small.style.fontSize = ".6em";
         textBox.appendChild(small);
     }
 
