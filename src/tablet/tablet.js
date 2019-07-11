@@ -12,12 +12,8 @@ const createWindow = () => {
     mainWindow.loadFile(`${__dirname}/screen.html`);
 };
 
-const displayOn = () => {
-    brightness.set(1);
-};
-
-const displayOff = () => {
-    brightness.set(0);
+const setDisplay = value => {
+    brightness.set(value);
 };
 
 const blockSleep = () => {
@@ -46,4 +42,4 @@ app.on('before-quit', () => {
     allowSleep();
 });
 
-module.exports = {displayOn, displayOff, setStyle, setText};
+module.exports = {setDisplay, setStyle, setText};
