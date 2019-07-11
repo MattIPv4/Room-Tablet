@@ -6,6 +6,19 @@
 <body>
 <section>
     <fieldset>
+        <legend>Settings</legend>
+
+        <button onclick="setDisplay(1)">Display: On</button>
+        <button onclick="setDisplay(0)">Display: Off</button>
+
+        <button onclick="callQuit()">Quit</button>
+        <button onclick="callRestart()">Restart</button>
+        <button onclick="callUpdate()">Update</button>
+    </fieldset>
+</section>
+
+<section>
+    <fieldset>
         <legend>Presets</legend>
 
         <button onclick="preset('Do not Disturb', '', 4)">

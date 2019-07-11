@@ -1,5 +1,4 @@
 const request = (type, url, callback, data) => {
-    const json = JSON.stringify(data);
     const xhr = new XMLHttpRequest();
     xhr.open(type, url, true);
     if (data) xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -9,7 +8,7 @@ const request = (type, url, callback, data) => {
             callback(resp);
         }
     };
-    xhr.send(json);
+    xhr.send(data ? JSON.stringify(data) : null);
 };
 
 const setText = () => {
@@ -42,4 +41,20 @@ const preset = (large, small, style) => {
 
     document.getElementById("setTextBtn").click();
     document.getElementById("setStyleBtn").click();
+};
+
+const setDisplay = brightness => {
+    request("PATCH", "api/display", (res) => {}, {brightness});
+};
+
+const callQuit = () => {
+    request("GET", "api/quit", (res) => {});
+};
+
+const callRestart = () => {
+    request("GET", "api/quit", (res) => {});
+};
+
+const callUpdate = () => {
+    request("GET", "api/quit", (res) => {});
 };
