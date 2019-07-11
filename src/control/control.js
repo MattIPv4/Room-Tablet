@@ -76,7 +76,7 @@ const runControl = (tablet, port) => {
     createAPI(app, tablet);
 
     app.listen(port);
-    tablet.setDataText(`${ip.address()}:${port}`);
+    tablet.setDataText(`${ip.address()}:${port} | Started ${(new Date()).toLocaleString()}`);
 };
 
 module.exports = runControl;
