@@ -8,12 +8,17 @@
     <fieldset>
         <legend>Presets</legend>
 
-        <button>Do not Disturb</button>
-        <button>Do not Disturb | I'm on a call</button>
+        <button onclick="preset('Do not Disturb', '', 4)">
+            Do not Disturb</button>
+        <button onclick="preset('Do not Disturb', 'I\'m on a call', 4)">
+            Do not Disturb | I'm on a call</button>
 
-        <button>Feel Free to Enter</button>
-        <button>Feel Free to Enter | I'm working</button>
-        <button>Feel Free to Enter | I'm chilling out</button>
+        <button onclick="preset('Feel Free to Enter', '', 2)">
+            Feel Free to Enter</button>
+        <button onclick="preset('Feel Free to Enter', 'I\'m working', 2)">
+            Feel Free to Enter | I'm working</button>
+        <button onclick="preset('Feel Free to Enter', 'I\'m chilling out', 2)">
+            Feel Free to Enter | I'm chilling out</button>
     </fieldset>
 </section>
 
@@ -27,7 +32,7 @@
         <label for="textSmall">Small Text:</label>
         <input type="text" id="textSmall"/><br/>
 
-        <button>Set Text</button>
+        <button onclick="setText()" id="setTextBtn">Set Text</button>
     </fieldset>
 </section>
 
@@ -48,7 +53,7 @@
             <input type="radio" name="style" value="4">
         </label> Danger<br/>
 
-        <button>Set Style</button>
+        <button onclick="setStyle()" id="setStyleBtn">Set Style</button>
     </fieldset>
 </section>
 
