@@ -2,14 +2,15 @@ const express = require('express');
 const ip = require('ip');
 const simpleGit = require('simple-git');
 
-const render = (req, res) => {
-    const options = {
-        root: __dirname,
+const sendFile = (res, dir, file) => {
+    res.sendFile(file, {
+        root: dir,
         dotfiles: 'deny'
-    };
+    });
+};
 
-    const fileName = req.params.name || 'index.html';
-    res.sendFile(fileName, options);
+const render = (req, res) => {
+    sendFile(res, __dirname, req.params.name || 'index.html');
 };
 
 const createAPI = (app, tablet) => {
@@ -67,6 +68,10 @@ const runControl = (tablet, port) => {
 
     app.get('/', render);
     app.get('/:name', render);
+
+    app.get('/node/css', (req, res) => {
+        sendFile(res, process.cwd(), 'node_modules/mini.css/dist/mini-dark.min.css');
+    });
 
     createAPI(app, tablet);
 
