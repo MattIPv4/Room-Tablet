@@ -48,11 +48,15 @@ const createAPI = (app, tablet) => {
         restart();
     });
 
-    app.get('/api/git-pull', function (req, res) {
+    app.get('/api/update', function (req, res) {
         simpleGit().pull((err, update) => {
             if (update && update.summary.changes) {
-                res.json({message: "Ok"});
-                restart();
+                const child = require('child_process').exec('npm i');
+                child.stdout.pipe(process.stdout);
+                child.on('exit', function() {
+                    res.json({message: "Ok"});
+                    restart();
+                });
             }
         });
     });
