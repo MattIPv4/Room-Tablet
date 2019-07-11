@@ -1,6 +1,11 @@
 const setBaseStyling = () => {
     document.body.style.backgroundColor = "#000";
     document.body.style.margin = "0";
+    document.body.style.width = "100vw";
+    document.body.style.height = "100vh";
+    document.body.style.display = "flex";
+    document.body.style.justifyContent = "center";
+    document.body.style.alignItems = "center";
 };
 
 let outerTextBox, textBox;
@@ -59,12 +64,6 @@ const applyBoxStyle = style => {
     outerTextBox.style.borderColor = `rgba(${r}, ${g}, ${b}, .75)`;
 };
 
-const centerTextBox = () => {
-    outerTextBox.style.position = "absolute";
-    outerTextBox.style.left = `${(document.body.clientWidth - outerTextBox.clientWidth) / 2}px`;
-    outerTextBox.style.top = `${(document.body.clientHeight - outerTextBox.clientHeight) / 2}px`;
-};
-
 const setText = (main, sub) => {
     // Don't continue if textBox not established
     if (!textBox) return;
@@ -86,9 +85,6 @@ const setText = (main, sub) => {
         small.style.fontSize = ".6em";
         textBox.appendChild(small);
     }
-
-    // Center
-    centerTextBox();
 };
 
 let dataText;
@@ -102,7 +98,7 @@ const setDataText = (text) => {
     // Set the text & style
     dataText.textContent = text;
     dataText.style.color = "#fff";
-    dataText.style.fontSize = ".7rem";
+    dataText.style.fontSize = ".6rem";
     dataText.style.fontFamily = "sans-serif";
     dataText.style.padding = ".2rem";
 
