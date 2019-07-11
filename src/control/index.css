@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+}
+
+label input[type="radio"] {
+    vertical-align: middle;
+    top: -1.5px;
+}

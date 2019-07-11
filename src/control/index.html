@@ -1,75 +1,103 @@
 <html lang="en">
 <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
     <title>Room Tablet</title>
+    <link rel="shortcut icon" href="icon.png"/>
+    <link rel="icon" type="image/png" href="icon.png"/>
+
+    <meta name="apple-mobile-web-app-title" content="Room Tablet"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="apple-touch-icon" href="icon.png"/>
+    <meta name="theme-color" content="#111"/>
+
     <link href="node/css" rel="stylesheet"/>
+    <link href="index.css" rel="stylesheet"/>
 </head>
 <body>
-<section>
-    <fieldset>
-        <legend>Settings</legend>
+<main>
+    <section>
+        <fieldset>
+            <legend>Presets</legend>
 
-        <button onclick="setDisplay(1)">Display: On</button>
-        <button onclick="setDisplay(0)">Display: Off</button>
+            <button onclick="preset('Do not Disturb', '', 4)">
+                Do not Disturb
+            </button>
+            <button onclick="preset('Do not Disturb', 'I\'m on a call', 4)">
+                Do not Disturb | I'm on a call
+            </button>
 
-        <button onclick="callQuit()">Quit</button>
-        <button onclick="callRestart()">Restart</button>
-        <button onclick="callUpdate()">Update</button>
-    </fieldset>
-</section>
+            <hr/>
 
-<section>
-    <fieldset>
-        <legend>Presets</legend>
+            <button onclick="preset('Feel Free to Enter', '', 2)">
+                Feel Free to Enter
+            </button>
+            <button onclick="preset('Feel Free to Enter', 'I\'m chilling out', 2)">
+                Feel Free to Enter | I'm chilling out
+            </button>
 
-        <button onclick="preset('Do not Disturb', '', 4)">
-            Do not Disturb</button>
-        <button onclick="preset('Do not Disturb', 'I\'m on a call', 4)">
-            Do not Disturb | I'm on a call</button>
+            <hr/>
 
-        <button onclick="preset('Feel Free to Enter', '', 2)">
-            Feel Free to Enter</button>
-        <button onclick="preset('Feel Free to Enter', 'I\'m chilling out', 2)">
-            Feel Free to Enter | I'm chilling out</button>
+            <button onclick="preset('I\'m working', '', 3)">
+                I'm working
+            </button>
+        </fieldset>
+    </section>
 
-        <button onclick="preset('I\'m working', '', 3)">
-            I'm working</button>
-    </fieldset>
-</section>
+    <section>
+        <fieldset>
+            <legend>Text</legend>
 
-<section>
-    <fieldset>
-        <legend>Text</legend>
+            <label for="textLarge">Large Text:
+                <input type="text" id="textLarge"/></label>
 
-        <label for="textLarge">Large Text:</label>
-        <input type="text" id="textLarge"/><br/>
+            <label for="textSmall">Small Text:
+                <input type="text" id="textSmall"/></label>
 
-        <label for="textSmall">Small Text:</label>
-        <input type="text" id="textSmall"/><br/>
+            <hr/>
 
-        <button onclick="setText()" id="setTextBtn">Set Text</button>
-    </fieldset>
-</section>
+            <button onclick="setText()" id="setTextBtn">Set Text</button>
+        </fieldset>
+    </section>
 
-<section>
-    <fieldset>
-        <legend>Style</legend>
+    <section>
+        <fieldset>
+            <legend>Style</legend>
 
-        <label>
-            <input type="radio" name="style" value="1">
-        </label> Info<br/>
-        <label>
-            <input type="radio" name="style" value="2">
-        </label> Success<br/>
-        <label>
-            <input type="radio" name="style" value="3">
-        </label> Warning<br/>
-        <label>
-            <input type="radio" name="style" value="4">
-        </label> Danger<br/>
+            <label><input type="radio" name="style" value="0" checked>Text Only (Black)</label>
+            <label><input type="radio" name="style" value="1">Info (Blue)</label>
+            <label><input type="radio" name="style" value="2">Success (Green)</label>
+            <label><input type="radio" name="style" value="3">Warning (Amber)</label>
+            <label><input type="radio" name="style" value="4">Danger (Red)</label>
 
-        <button onclick="setStyle()" id="setStyleBtn">Set Style</button>
-    </fieldset>
-</section>
+            <hr/>
+
+            <button onclick="setStyle()" id="setStyleBtn">Set Style</button>
+        </fieldset>
+    </section>
+
+    <section>
+        <fieldset>
+            <legend>Settings</legend>
+
+            <button onclick="setDisplay(1)">Display: On</button>
+            <button onclick="setDisplay(0)">Display: Off</button>
+
+            <hr/>
+
+            <button onclick="callQuit()">Quit</button>
+            <button onclick="callRestart()">Restart</button>
+
+            <hr/>
+
+            <button onclick="callUpdate()">Update</button>
+        </fieldset>
+    </section>
+</main>
 
 <script src="index.js"></script>
 </body>
