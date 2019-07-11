@@ -1,4 +1,5 @@
 const express = require('express');
+const ip = require('ip');
 
 const render = (req, res) => {
     const options = {
@@ -27,6 +28,11 @@ const createAPI = (app, tablet) => {
         tablet.setText(req.body.large, req.body.small);
         res.json({message: "Ok"});
     });
+
+    app.post('/api/quit', function (req, res) {
+        res.json({message: "Ok"});
+        tablet.quit();
+    });
 };
 
 const runControl = (tablet, port) => {
@@ -38,6 +44,7 @@ const runControl = (tablet, port) => {
     createAPI(app, tablet);
 
     app.listen(port);
+    tablet.setDataText(`${ip.address()}:${port}`);
 };
 
 module.exports = runControl;

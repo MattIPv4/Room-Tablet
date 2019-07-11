@@ -90,9 +90,32 @@ const setText = (main, sub) => {
     centerTextBox();
 };
 
+let dataText;
+const setDataText = (text) => {
+    // Create the elm if it doesn't exist yet
+    if (!dataText) {
+        dataText = document.createElement("p");
+        document.body.appendChild(dataText);
+    }
+
+    // Set the text & style
+    dataText.textContent = text;
+    dataText.style.color = "#fff";
+    dataText.style.fontSize = ".7rem";
+    dataText.style.fontFamily = "sans-serif";
+    dataText.style.padding = ".2rem";
+
+    // Position
+    dataText.style.position = "absolute";
+    dataText.style.bottom = "0";
+    dataText.style.left = "0";
+    dataText.style.margin = "0";
+};
+
 window.onload = () => {
     setBaseStyling();
     createTextBox();
     applyBoxStyle(1);
     setText("", "...");
+    setDataText("");
 };

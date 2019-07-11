@@ -20,6 +20,7 @@
     "brightness": "^3.0.0",
     "electron": "^5.0.6",
     "express": "^4.17.1",
+    "ip": "^1.1.5",
     "stay-awake": "0.0.3"
   },
   "devDependencies": {}

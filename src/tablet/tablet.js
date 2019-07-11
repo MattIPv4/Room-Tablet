@@ -32,14 +32,22 @@ const setText = (large, small) => {
     mainWindow.webContents.executeJavaScript(`setText("${large}", "${small || ""}");`);
 };
 
+const setDataText = (text) => {
+    mainWindow.webContents.executeJavaScript(`setDataText("${text}");`);
+};
+
+const quit = () => {
+    app.quit();
+};
+
 app.on('ready', () => {
     blockSleep();
     createWindow();
 });
 
 app.on('before-quit', () => {
-    displayOn();
+    setDisplay(1);
     allowSleep();
 });
 
-module.exports = {setDisplay, setStyle, setText};
+module.exports = {app, setDisplay, setStyle, setText, setDataText, quit};
