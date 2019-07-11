@@ -1,6 +1,5 @@
 const {app, BrowserWindow} = require('electron');
 const brightness = require('brightness');
-const stayAwake = require('stay-awake');
 
 let mainWindow;
 const createWindow = () => {
@@ -14,14 +13,6 @@ const createWindow = () => {
 
 const setDisplay = value => {
     brightness.set(value);
-};
-
-const blockSleep = () => {
-    stayAwake.prevent();
-};
-
-const allowSleep = () => {
-    stayAwake.allow();
 };
 
 const setStyle = style => {
@@ -41,13 +32,11 @@ const quit = () => {
 };
 
 app.on('ready', () => {
-    blockSleep();
     createWindow();
 });
 
 app.on('before-quit', () => {
     setDisplay(1);
-    allowSleep();
 });
 
 module.exports = {app, setDisplay, setStyle, setText, setDataText, quit};
